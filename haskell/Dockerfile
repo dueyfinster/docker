@@ -1,11 +1,13 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER neil@grogan.ie
 
 ENV DIRPATH /data
-ENV INSTALL_PKGS haskell-platform
+ENV INSTALL_PKGS stack
 
-RUN sudo apt-get update && \
-         sudo apt-get install -y $INSTALL_PKGS
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 575159689BEFB442 && \
+    echo 'deb http://download.fpcomplete.com/ubuntu xenial main' | tee /etc/apt/sources.list.d/fpco.list && \
+    apt-get update && \
+    apt-get install -y $INSTALL_PKGS
 
 WORKDIR $DIRPATH
 VOLUME $DIRPATH
