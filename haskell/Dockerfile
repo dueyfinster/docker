@@ -9,7 +9,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 575159689B
     apt-get update && \
     apt-get install -y $INSTALL_PKGS && \
     /usr/bin/stack setup && \
-    /usr/bin/stack build
+    /usr/bin/stack init 
 
 WORKDIR $DIRPATH
 VOLUME $DIRPATH
