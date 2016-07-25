@@ -8,7 +8,8 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 575159689B
     echo 'deb http://download.fpcomplete.com/ubuntu xenial main' | tee /etc/apt/sources.list.d/fpco.list && \
     apt-get update && \
     apt-get install -y $INSTALL_PKGS && \
-    /usr/bin/stack setup
+    /usr/bin/stack setup && \
+    /usr/bin/stack build
 
 WORKDIR $DIRPATH
 VOLUME $DIRPATH
